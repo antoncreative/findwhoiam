@@ -15,8 +15,8 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "How It Works", href: "/#how-it-works" },
-    { label: "Stories", href: "/stories" },
-    { label: "Knowledge", href: "/knowledge" },
+    { label: "About", href: "/#about" },
+    { label: "Support Us", href: "/#support" },
   ];
 
   return (
@@ -84,11 +84,18 @@ export default function Navbar() {
             Book a Talk
           </Link>
           <Link
-            href="/#support"
+            href="/knowledge"
             onClick={() => setMenuOpen(false)}
             className="text-base text-[#6B6A66] hover:text-[#B8956A] transition-colors"
           >
-            Support Us
+            Knowledge
+          </Link>
+          <Link
+            href="/stories"
+            onClick={() => setMenuOpen(false)}
+            className="text-base text-[#6B6A66] hover:text-[#B8956A] transition-colors"
+          >
+            Stories
           </Link>
         </div>
       )}

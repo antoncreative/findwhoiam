@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-[#1C1C1A] text-[#FAFAF8] py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
             <p className="font-serif text-2xl mb-3">FindWhoIAm</p>
@@ -12,26 +14,49 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Navigate */}
           <div>
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-[#B8956A] mb-5">
               Navigate
             </p>
             <ul className="space-y-3">
               {[
-                { label: "How It Works", href: "#how-it-works" },
-                { label: "About", href: "#about" },
-                { label: "Who Is It For", href: "#who-is-it-for" },
-                { label: "Book a Talk", href: "#booking" },
-                { label: "Support Us", href: "#support" },
+                { label: "How It Works", href: "/#how-it-works" },
+                { label: "About", href: "/#about" },
+                { label: "Who Is It For", href: "/#who-is-it-for" },
+                { label: "Book a Talk", href: "/#booking" },
+                { label: "Support Us", href: "/#support" },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-[#FAFAF8]/55 hover:text-[#FAFAF8] transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Explore */}
+          <div>
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[#B8956A] mb-5">
+              Explore
+            </p>
+            <ul className="space-y-3">
+              {[
+                { label: "Knowledge", href: "/knowledge" },
+                { label: "Stories", href: "/stories" },
+                { label: "Share Your Story", href: "/stories/submit" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#FAFAF8]/55 hover:text-[#FAFAF8] transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -45,7 +70,6 @@ export default function Footer() {
             <p className="text-[#FAFAF8]/55 text-sm mb-3">
               Have a question before booking?
             </p>
-            {/* Replace with actual email */}
             <a
               href="mailto:hello@findwhoiam.com"
               className="text-sm text-[#FAFAF8]/80 hover:text-[#B8956A] transition-colors duration-200 underline underline-offset-4 decoration-[#FAFAF8]/20"
@@ -53,12 +77,12 @@ export default function Footer() {
               hello@findwhoiam.com
             </a>
             <div className="mt-8">
-              <a
-                href="#booking"
+              <Link
+                href="/#booking"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#B8956A] text-[#FAFAF8] rounded-full text-sm font-medium hover:bg-[#A07850] transition-colors duration-300"
               >
                 Book a Free Talk
-              </a>
+              </Link>
             </div>
           </div>
         </div>
