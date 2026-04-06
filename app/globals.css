@@ -33,3 +33,37 @@ body {
   background: var(--color-accent-light);
   color: var(--color-foreground);
 }
+
+/* Article prose styles */
+.prose-article {
+  color: #3a3a38;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.prose-article p { margin-bottom: 1.6rem; }
+.prose-article h2 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.6rem;
+  color: #1C1C1A;
+  line-height: 1.25;
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+}
+.prose-article h3 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.25rem;
+  color: #1C1C1A;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-article strong { color: #1C1C1A; font-weight: 600; }
+.prose-article ul { list-style: none; padding: 0; margin-bottom: 1.6rem; }
+.prose-article ul li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+.prose-article ul li::before { content: "◦"; color: #B8956A; position: absolute; left: 0; }
+.prose-article blockquote {
+  border-left: 2px solid #B8956A;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #6B6A66;
+}

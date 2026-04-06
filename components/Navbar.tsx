@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,10 +14,9 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "About", href: "#about" },
-    { label: "Who Is It For", href: "#who-is-it-for" },
-    { label: "Book a Talk", href: "#booking" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "About", href: "/#about" },
+    { label: "Knowledge", href: "/knowledge" },
   ];
 
   return (
@@ -28,27 +28,27 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="font-serif text-xl tracking-tight text-[#1C1C1A]">
+        <Link href="/" className="font-serif text-xl tracking-tight text-[#1C1C1A]">
           FindWhoIAm
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.slice(0, 3).map((link) => (
-            <a
+          {navLinks.map((link) => (
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm text-[#6B6A66] hover:text-[#1C1C1A] transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#booking"
+          <Link
+            href="/#booking"
             className="text-sm px-5 py-2.5 bg-[#1C1C1A] text-[#FAFAF8] rounded-full hover:bg-[#B8956A] transition-colors duration-300"
           >
             Book a Talk
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile hamburger */}
@@ -57,15 +57,9 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span
-            className={`block w-6 h-px bg-[#1C1C1A] transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span
-            className={`block w-6 h-px bg-[#1C1C1A] transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block w-6 h-px bg-[#1C1C1A] transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
-          />
+          <span className={`block w-6 h-px bg-[#1C1C1A] transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block w-6 h-px bg-[#1C1C1A] transition-opacity duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-px bg-[#1C1C1A] transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </div>
 
@@ -73,22 +67,29 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-[#FAFAF8] border-b border-[#E0DBD0] px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className="text-base text-[#1C1C1A] hover:text-[#B8956A] transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#support"
+          <Link
+            href="/#booking"
+            onClick={() => setMenuOpen(false)}
+            className="text-base text-[#1C1C1A] hover:text-[#B8956A] transition-colors"
+          >
+            Book a Talk
+          </Link>
+          <Link
+            href="/#support"
             onClick={() => setMenuOpen(false)}
             className="text-base text-[#6B6A66] hover:text-[#B8956A] transition-colors"
           >
             Support Us
-          </a>
+          </Link>
         </div>
       )}
     </header>
